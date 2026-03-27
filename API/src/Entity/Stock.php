@@ -8,12 +8,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="stocks")
  */
 class Stock {
-    /** 
-     * @ORM\id
+    /**
+     * @ORM\Id
      * @ORM\Column(type="integer")
-     * @ORM\GenerateId
+     * @ORM\GeneratedValue
      */
-    private int $stock_id;
+    private ?int $stock_id = null;
 
     /** 
      * @ORM\Column(type="integer")

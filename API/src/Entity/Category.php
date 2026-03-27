@@ -9,12 +9,12 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="categories")
  */
 class Category {
-    /** 
-     * @ORM\id
+    /**
+     * @ORM\Id
      * @ORM\Column(type="integer")
-     * @ORM\GenerateId
+     * @ORM\GeneratedValue
      */
-    private int $category_id;
+    private ?int $category_id = null;
 
     /** 
      * @ORM\Column(type="string")
@@ -28,18 +28,18 @@ class Category {
     /**
      * Get category_id.
      * 
-     * @return integer
+     * @return integer|null
      */
-    public function getCategoryId($category_id): ?int {
+    public function getCategoryId(): ?int {
         return $this->category_id;
     }
 
     /**
      * Get category_name.
      * 
-     * @return string
+     * @return string|null
      */
-    public function getCategoryName($category_name): ?string {
+    public function getCategoryName(): ?string {
         return $this->category_name;
     }
 

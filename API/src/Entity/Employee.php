@@ -9,12 +9,12 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="employees")
  */
 class Employee {
-    /** 
-     * @ORM\id
+    /**
+     * @ORM\Id
      * @ORM\Column(type="integer")
-     * @ORM\GenerateId
+     * @ORM\GeneratedValue
      */
-    private int $employee_id;
+    private ?int $employee_id = null;
 
     /** 
      * @ORM\Column(type="integer")
@@ -22,9 +22,24 @@ class Employee {
     private int $store_id;
     
     /** 
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
     private string $employee_name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $employee_email;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $employee_password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $employee_role;
 
     public function __tostring(): string {
         return "Employee {$this->employee_id} {$this->employee_name}\n";
@@ -33,28 +48,55 @@ class Employee {
     /**
      * Get employee_id.
      * 
-     * @return integer
+     * @return integer|null
      */
-    public function getEmployeeId($employee_id): ?int {
+    public function getEmployeeId(): ?int {
         return $this->employee_id;
     }
     
     /**
      * Get store_id.
      * 
-     * @return integer
+     * @return integer|null
      */
-    public function getStoreId($store_id): ?int {
+    public function getStoreId(): ?int {
         return $this->store_id;
     }
 
     /**
      * Get employee_name.
      * 
-     * @return string
+     * @return string|null
      */
-    public function getEmployeeName($employee_name): ?string {
+    public function getEmployeeName(): ?string {
         return $this->employee_name;
+    }
+
+    /**
+     * Get employee_email.
+     * 
+     * @return string|null
+     */
+    public function getEmployeeEmail(): ?string {
+        return $this->employee_email;
+    }
+
+    /**
+     * Get employee_password.
+     * 
+     * @return string|null
+     */
+    public function getEmployeePassword(): ?string {
+        return $this->employee_password;
+    }
+
+    /**
+     * Get employee_role.
+     * 
+     * @return string|null
+     */
+    public function getEmployeeRole(): ?string {
+        return $this->employee_role;
     }
 
     /**

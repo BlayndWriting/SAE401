@@ -7,15 +7,13 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="brands")
  */
-
 class Brand {
-    /** @var string */
-    /** 
-     * @ORM\id
+    /**
+     * @ORM\Id
      * @ORM\Column(type="integer")
-     * @ORM\GenerateId
+     * @ORM\GeneratedValue
      */
-    private int $brand_id;
+    private ?int $brand_id = null;
 
     /** 
      * @ORM\Column(type="string")
@@ -29,9 +27,9 @@ class Brand {
     /**
      * Get brand_id.
      * 
-     * @return integer
+     * @return integer|null
      */
-    public function getBrandId($brand_id): ?int {
+    public function getBrandId(): ?int {
         return $this->brand_id;
     }
 
@@ -40,16 +38,16 @@ class Brand {
      * 
      * @return string
      */
-    public function getBrandName($brand_name): ?string {
+    public function getBrandName(): ?string {
         return $this->brand_name;
     }
 
     /**
      * Set brand_id.
      * 
-     * @param string $brand_id
+     * @param int $brand_id
      * 
-     * @return Brand
+eturn void
      */
     public function setBrandId(int $brand_id): void {
         $this->brand_id = $brand_id;

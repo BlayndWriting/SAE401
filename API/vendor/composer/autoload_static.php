@@ -57,6 +57,14 @@ class ComposerStaticInit0e657f65c1860401967558dd115291e2
     );
 
     public static $prefixDirsPsr4 = array (
+        'Controller\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Controller',
+        ),
+        'Entity\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Entity',
+        ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',

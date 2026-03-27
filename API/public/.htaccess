@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Support legacy /api path and new /bikestores path
+RewriteRule ^(bikestores|api)(.*)$ index.php [QSA,L]
+
+# Fallback for all other requests in this directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]

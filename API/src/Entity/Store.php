@@ -8,32 +8,47 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="stores")
  */
 class Store {
-    /** 
-     * @ORM\id
+    /**
+     * @ORM\Id
      * @ORM\Column(type="integer")
-     * @ORM\GenerateId
+     * @ORM\GeneratedValue
      */
-    private int $store_id;
+    private ?int $store_id = null;
 
-    /** 
-     * @ORM\Column(type="string")
+    /**
+     * @ORM\Column(type="string", length=255)
      */
     private string $store_name;
 
-    /** 
-     * @ORM\Column(type="string")
+    /**
+     * @ORM\Column(type="string", length=25, nullable=true)
      */
-    private string $store_address;
+    private ?string $phone = null;
 
-    /** 
-     * @ORM\Column(type="string")
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $store_city;
+    private ?string $email = null;
 
-    /** 
-     * @ORM\Column(type="string")
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $store_phone;
+    private ?string $street = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $city = null;
+
+    /**
+     * @ORM\Column(type="string", length=10, nullable=true)
+     */
+    private ?string $state = null;
+
+    /**
+     * @ORM\Column(type="string", length=5, nullable=true)
+     */
+    private ?string $zip_code = null;
 
     public function __toString(): string {
         return "Store {$this->store_id} {$this->store_name}\n";
@@ -42,7 +57,7 @@ class Store {
     /**
      * Get store_id.
      * 
-     * @return integer
+     * @return integer|null
      */
     public function getStoreId(): ?int {
         return $this->store_id ?? null;
@@ -51,45 +66,71 @@ class Store {
     /**
      * Get store_name.
      * 
-     * @return string
+     * @return string|null
      */
     public function getStoreName(): ?string {
         return $this->store_name ?? null;
     }
 
     /**
-     * Get store_address.
+     * Get phone.
      * 
-     * @return string
+     * @return string|null
      */
-    public function getStoreAddress(): ?string {
-        return $this->store_address ?? null;
+    public function getPhone(): ?string {
+        return $this->phone;
     }
 
     /**
-     * Get store_city.
+     * Get email.
      * 
-     * @return string
+     * @return string|null
      */
-    public function getStoreCity(): ?string {
-        return $this->store_city ?? null;
+    public function getEmail(): ?string {
+        return $this->email;
     }
 
     /**
-     * Get store_phone.
+     * Get street.
      * 
-     * @return string
+     * @return string|null
      */
-    public function getStorePhone(): ?string {
-        return $this->store_phone ?? null;
+    public function getStreet(): ?string {
+        return $this->street;
+    }
+
+    /**
+     * Get city.
+     * 
+     * @return string|null
+     */
+    public function getCity(): ?string {
+        return $this->city;
+    }
+
+    /**
+     * Get state.
+     * 
+     * @return string|null
+     */
+    public function getState(): ?string {
+        return $this->state;
+    }
+
+    /**
+     * Get zip_code.
+     * 
+     * @return string|null
+     */
+    public function getZipCode(): ?string {
+        return $this->zip_code;
     }
 
     /**
      * Set store_id.
      * 
      * @param integer $store_id
-     * 
-     * @return Store
+     * @return void
      */
     public function setStoreId(int $store_id): void {
         $this->store_id = $store_id;
@@ -99,44 +140,70 @@ class Store {
      * Set store_name.
      * 
      * @param string $store_name
-     * 
-     * @return Store
+     * @return void
      */
     public function setStoreName(string $store_name): void {
         $this->store_name = $store_name;
     }
 
     /**
-     * Set store_address.
+     * Set phone.
      * 
-     * @param string $store_address
-     * 
-     * @return Store
+     * @param string|null $phone
+     * @return void
      */
-    public function setStoreAddress(string $store_address): void {
-        $this->store_address = $store_address;
+    public function setPhone(?string $phone): void {
+        $this->phone = $phone;
     }
 
     /**
-     * Set store_city.
+     * Set email.
      * 
-     * @param string $store_city
-     * 
-     * @return Store
+     * @param string|null $email
+     * @return void
      */
-    public function setStoreCity(string $store_city): void {
-        $this->store_city = $store_city;
+    public function setEmail(?string $email): void {
+        $this->email = $email;
     }
 
     /**
-     * Set store_phone.
+     * Set street.
      * 
-     * @param string $store_phone
-     * 
-     * @return Store
+     * @param string|null $street
+     * @return void
      */
-    public function setStorePhone(string $store_phone): void {
-        $this->store_phone = $store_phone;
+    public function setStreet(?string $street): void {
+        $this->street = $street;
+    }
+
+    /**
+     * Set city.
+     * 
+     * @param string|null $city
+     * @return void
+     */
+    public function setCity(?string $city): void {
+        $this->city = $city;
+    }
+
+    /**
+     * Set state.
+     * 
+     * @param string|null $state
+     * @return void
+     */
+    public function setState(?string $state): void {
+        $this->state = $state;
+    }
+
+    /**
+     * Set zip_code.
+     * 
+     * @param string|null $zip_code
+     * @return void
+     */
+    public function setZipCode(?string $zip_code): void {
+        $this->zip_code = $zip_code;
     }
 }
 ?>
