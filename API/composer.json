@@ -1,20 +1,24 @@
 {
-    "require": {
-        "doctrine/orm": "^2.11.0",
-        "doctrine/dbal": "^3.2",
-        "symfony/yaml": "^5.4",
-        "symfony/cache": "^5.4",
-        "doctrine/annotations": "^2.0"
-    },
+    "name": "sae401/bikestores-api",
+    "description": "API REST BikeStores",
+    "type": "project",
     "autoload": {
         "psr-4": {
-            "Controller\\": "src/Controller/",
-            "Entity\\": "src/Entity/"
+            "SAE401\\BikestoresApi\\": "src/"
         }
     },
-    "config": {
-        "platform": {
-            "php": "7.4.25"
+    "authors": [
+        {
+            "name": "SAE401",
+            "email": "sae401@example.com"
         }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "doctrine/orm": "^3.6",
+        "symfony/cache": "^7.4",
+        "symfony/console": "^7.4"
+    },
+    "config": {
     }
 }

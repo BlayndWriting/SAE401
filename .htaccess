@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /SAE401/
+
+# Redirect bikestores requests to API
+RewriteRule ^bikestores(.*)$ /SAE401/API/public/bikestores$1 [L,QSA]
+
+# Redirect bikestore requests to API (singular)
+RewriteRule ^bikestore(.*)$ /SAE401/API/public/bikestore$1 [L,QSA]
+
+# Redirect api requests to API
+RewriteRule ^api(.*)$ /SAE401/API/public/api$1 [L,QSA]

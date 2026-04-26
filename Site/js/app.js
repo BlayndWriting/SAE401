@@ -9,7 +9,7 @@
  * Base API configuration
  * @constant {string} API_BASE_URL - Base URL for API endpoints
  */
-const API_BASE_URL = '';
+const API_BASE_URL = '/SAE401';
 
 /**
  * Available API resources

@@ -280,6 +280,54 @@ class ApiController
             'status_code' => $statusCode
         ];
     }
+
+    /**
+     * Handle login POST request
+     * @return array
+     */
+    public function handleLogin(): array
+    {
+        $body = json_decode(file_get_contents("php://input"), true);
+
+        if (!$body) {
+            return $this->errorResponse('Invalid JSON', 400);
+        }
+
+        $email = $body['employee_email'] ?? null;
+        $password = $body['employee_password'] ?? null;
+
+        if (!$email || !$password) {
+            return $this->errorResponse('Missing email or password', 400);
+        }
+
+        $repo = $this->entityManager->getRepository('Entity\\Employee');
+
+        $employee = $repo->findOneBy([
+            'employee_email' => $email,
+            'employee_password' => $password
+        ]);
+
+        if (!$employee) {
+            return $this->errorResponse('Invalid credentials', 401);
+        }
+
+        // Load store relation
+        $store = $employee->getStore();
+
+        $data = [
+            'message' => 'Login successful',
+            'employee' => [
+                'employee_id' => $employee->getEmployeeId(),
+                'employee_name' => $employee->getEmployeeName(),
+                'employee_email' => $employee->getEmployeeEmail(),
+                'employee_role' => $employee->getEmployeeRole(),
+                'store_id' => $employee->getStoreId(),
+                'store_name' => $store ? $store->getStoreName() : 'Unknown'
+            ]
+        ];
+
+        return $this->successResponse($data);
+    }
 }
 
 ?>

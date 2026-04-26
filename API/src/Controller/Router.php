@@ -56,6 +56,11 @@ class Router
         $resource = $segments[1];
         $id = isset($segments[2]) ? intval($segments[2]) : null;
 
+        // Handle login endpoint
+        if ($resource === 'login' && $method === 'POST') {
+            return $this->apiController->handleLogin();
+        }
+
         // Get API key from header for write operations
         $apiKey = null;
         if ($method !== 'GET') {

@@ -6,16 +6,16 @@
  * Initializes dependencies, registers routes and dispatches the incoming request.
  */
 
-require_once __DIR__ . '/../bootstrap.php';
+require_once __DIR__ . '/bootstrap.php';
 
-use Controller\AuthController;
-use Controller\BrandController;
-use Controller\ProductController;
-use Controller\CategoryController;
-use Controller\StoreController;
-use Controller\StockController;
-use Controller\EmployeeController;
-use Utils\Router;
+use SAE401\BikestoresApi\Utils\Router;
+use SAE401\BikestoresApi\Controller\AuthController;
+use SAE401\BikestoresApi\Controller\BrandController;
+use SAE401\BikestoresApi\Controller\ProductController;
+use SAE401\BikestoresApi\Controller\CategoryController;
+use SAE401\BikestoresApi\Controller\StoreController;
+use SAE401\BikestoresApi\Controller\StockController;
+use SAE401\BikestoresApi\Controller\EmployeeController;
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
